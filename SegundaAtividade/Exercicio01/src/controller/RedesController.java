@@ -77,8 +77,7 @@ public class RedesController {
                     }
                 
                     if (palavras[i].contains("Media") || palavras[i].contains("Average")) {
-                        JOptionPane.showMessageDialog(null,"E o tempo médio é: "+linha.lastIndexOf("=")+"ms");
-                        System.out.println(linha); 
+                        JOptionPane.showMessageDialog(null,"E o tempo médio é: \n"+linha);
                     }
                 }  
             }
