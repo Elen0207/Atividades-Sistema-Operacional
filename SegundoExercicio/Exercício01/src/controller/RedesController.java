@@ -3,7 +3,6 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
-
 public class RedesController {
     public RedesController() {
         super();
@@ -13,13 +12,11 @@ public class RedesController {
         String processo = "";
         String palavras[] = new String [0];
 
-
-
-        if(SO.equalsIgnoreCase("Windows 10")) {
-            processo = "ipconfig";
-            JOptionPane.showMessageDialog(null,"Seu Sistema Operacional é: %d\n"+SO);
-        } else 
-            if(SO.equalsIgnoreCase("Linux")) {
+        if(SO.contains("indows")) {
+                processo = "ipconfig";
+                JOptionPane.showMessageDialog(null,"Seu Sistema Operacional é:\n"+SO);
+        } else
+            if(SO.contains("inux")) {
                 processo = "ifconfig";
                 JOptionPane.showMessageDialog(null,"Seu Sistema Operacional é:\n"+SO);
             } 
@@ -47,8 +44,7 @@ public class RedesController {
             leitor.close();
             fluxo.close();
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null,"Não localizamos seu Sistema Operacional");
-            e.printStackTrace();
+             e.printStackTrace();
         }
     }  
 
@@ -82,6 +78,7 @@ public class RedesController {
                 
                     if (palavras[i].contains("Media") || palavras[i].contains("Average")) {
                         JOptionPane.showMessageDialog(null,"E o tempo médio é: "+linha.lastIndexOf("=")+"ms");
+                        System.out.println(linha); 
                     }
                 }  
             }
@@ -89,7 +86,6 @@ public class RedesController {
             leitor.close();
             fluxo.close();
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null,"Não localizamos seu Sistema Operacional");
             e.printStackTrace();
         }
     }
