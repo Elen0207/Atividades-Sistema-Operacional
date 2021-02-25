@@ -1,17 +1,18 @@
 package controller;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
+
 public class RedesController {
     public RedesController() {
         super();
     }
 
-	public void ip (String SO) {
+	public void ip (String SO, String [] palavras) {
         String processo = "";
-        String palavras[] = new String [0];
-
+        
         if(SO.contains("indows")) {
                 processo = "ipconfig";
                 JOptionPane.showMessageDialog(null,"Seu Sistema Operacional é:\n"+SO);
@@ -48,9 +49,8 @@ public class RedesController {
         }
     }  
 
-    public void ping (String SO) {
+    public void ping (String SO, String [] palavras) {
         String processo = "";
-        String palavras[] = new String [0];
 
         if(SO.equalsIgnoreCase("Windows 10")) {
             processo = "ping -n 10 www.google.com.br";
