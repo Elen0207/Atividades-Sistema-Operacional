@@ -42,7 +42,7 @@ public class OperacoesController {
     public void vetorFrase() {
          // Concatena 32768 caracteres, 1 a 1, em um vetor String
         String [] vetor = new String[1000];
-         double tempoInicial = System.nanoTime();
+        double tempoInicial = System.nanoTime();
  
          for (int i = 0; i < 1000 ; i++ ) {
              vetor[i] = new String();
