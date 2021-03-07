@@ -1,7 +1,5 @@
 package exercicio01.view;
-
 import javax.swing.JOptionPane;
-
 import exercicio01.controller.ThreadVetor;
 
 public class Main {
