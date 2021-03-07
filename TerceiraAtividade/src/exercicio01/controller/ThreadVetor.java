@@ -27,6 +27,7 @@ public class ThreadVetor extends Thread {
             double tempoInicial = System.nanoTime();
             
             for(int vetorThread : vetor) {
+                vetorThread = vetorThread;
                 Thread thread = new ThreadVetor();
                 thread.start();
             }
