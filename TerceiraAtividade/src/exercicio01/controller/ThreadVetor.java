@@ -1,4 +1,5 @@
 package exercicio01.controller;
+
 import javax.swing.JOptionPane;
 
 public class ThreadVetor extends Thread {
@@ -27,7 +28,6 @@ public class ThreadVetor extends Thread {
             double tempoInicial = System.nanoTime();
             
             for(int vetorThread : vetor) {
-                vetorThread = vetorThread;
                 Thread thread = new ThreadVetor();
                 thread.start();
             }
