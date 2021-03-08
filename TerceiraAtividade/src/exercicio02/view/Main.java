@@ -1,12 +1,12 @@
 package exercicio02.view;
-import exercicio02.controller.ThreadId;
+
+import exercicio02.controller.CalculaMatriz;
 
 public class Main {
 	public static void main(String[] args) {
+		
+		CalculaMatriz calculaMatriz = new CalculaMatriz();
+		calculaMatriz.start();
 
-		for (int id =0; id < 5; id ++) {
-			Thread getThreadID = new ThreadId(id);
-			getThreadID.start();
-		}
 	}
 }
