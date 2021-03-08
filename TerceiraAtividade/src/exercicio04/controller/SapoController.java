@@ -1,24 +1,20 @@
-package exercicio03.controller;
+package exercicio04.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.Semaphore;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
 public class SapoController implements ActionListener {
 
-    private JLabel sapo1;
-	private JLabel sapo2;
-	private JLabel sapo3;
-	private JLabel sapo4;
-	private JLabel sapo5;
-    private JLabel lbFim;
+    private int sapo1;
+	private int sapo2;
+	private int sapo3;
+	private int sapo4;
+	private int sapo5;
 
-	private JButton btnIniciar;
-	private JTextArea textArea;
+	private Semaphore farol;
+    private int lbFim;
+	private int btnIniciar;
 	
 	private final int f1 = 1;
 	private final int f2 = 2;
@@ -26,24 +22,26 @@ public class SapoController implements ActionListener {
 	private final int f4 = 4;
 	private final int f5 = 5;
 
-	private Semaphore farol;
+	private int textArea;
+	private int textAreaSapo1;
+	private int textAreaSapo2;
+	private int textAreaSapo3;
+	private int textAreaSapo4;
+	private int textAreaSapo5;	
 
-	private JTextArea textAreaSapo1;
-	private JTextArea textAreaSapo2;
-	private JTextArea textAreaSapo3;
-	private JTextArea textAreaSapo4;
-	private JTextArea textAreaSapo5;
-	
-	public SapoController (Semaphore farol, JLabel sapo1, JLabel sapo2, JLabel sapo3, JLabel sapo4, JLabel sapo5,JButton btnIniciar, JTextArea textArea, JLabel lbFim, JTextArea textAreaSapo1, JTextArea textAreaSapo2, JTextArea textAreaSapo3, JTextArea textAreaSapo4, JTextArea textAreaSapo5) {
+	public SapoController (Semaphore farol, int sapo1, int sapo2, int sapo3, int sapo4, int sapo5, int btnIniciar, int lbFim, int textArea, int textAreaSapo1, int textAreaSapo2, int textAreaSapo3, int textAreaSapo4,  int textAreaSapo5	) {
+		
 		this.farol = farol;
         this.btnIniciar = btnIniciar;
+		this.lbFim = lbFim;
+
 		this.sapo1 = sapo1;
 		this.sapo2 = sapo2;
 		this.sapo3 = sapo3;
 		this.sapo4 = sapo4;
 		this.sapo5 = sapo5;
+
 		this.textArea = textArea;
-		this.lbFim = lbFim;
 		this.textAreaSapo1 = textAreaSapo1;
 		this.textAreaSapo2 = textAreaSapo2;
 		this.textAreaSapo3 = textAreaSapo3;

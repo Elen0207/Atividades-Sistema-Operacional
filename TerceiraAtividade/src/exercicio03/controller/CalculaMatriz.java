@@ -1,4 +1,4 @@
-package exercicio02.controller;
+package exercicio03.controller;
 
 public class CalculaMatriz extends Thread {
 

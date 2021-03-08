@@ -1,58 +1,56 @@
-package exercicio03.controller;
+package exercicio04.controller;
 
 import java.awt.Rectangle;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-
 public class ThreadCorrida extends Thread {
 
     Random r = new Random();
 
-	private JLabel Sapo;
-	private JButton btnIniciar;
-	private static JTextArea textArea;
+	private int Sapo;
+	private int btnIniciar;
+	private static int textArea;
 	private int n = 0;
 	private int opcao;
-	private JLabel lbFim;
+	private int lbFim;
 	private Semaphore farol;
-	private JTextArea textAreaSapo;
+	private int textAreaSapo;
 
-    public ThreadCorrida (Semaphore farol, JLabel Sapo, JButton btnIniicar, JTextArea textArea, final int f,
-			JLabel lbFim, JTextArea textAreaSapo) {
+    public ThreadCorrida (Semaphore farol, int Sapo, int btnIniicar, int textArea, int opcao,
+	int lbFim, int textAreaSapo) {
 
 		this.farol = farol;
 		this.Sapo = Sapo;
 		this.btnIniciar = btnIniicar;
 		ThreadCorrida.textArea = textArea;
-		this.f = f;
+		this.opcao = opcao;
 		this.lbFim = lbFim;
 		this.textAreaSapo = textAreaSapo;
 
 	}
 
 	private void restart() {
+		textArea = 600;
 		switch (opcao) {
             case 1:
-                Sapo.setBounds(10, 11, 100, 93);
+                Sapo(textArea);
             break;
 
             case 2:
-                Sapo.setBounds(10, 118, 100, 93);
+                Sapo(textArea);
             break;
 
             case 3:
-                Sapo.setBounds(10, 223, 100, 93);
+				Sapo(textArea);
             break;
 
             case 4:
-                Sapo.setBounds(10, 327, 100, 93);
-                break;
+				Sapo(textArea);
+            break;
+
             case 5:
-                Sapo.setBounds(10, 431, 100, 93);
+                Sapo(textArea);
             break;
 
             default:
@@ -60,9 +58,11 @@ public class ThreadCorrida extends Thread {
 		}
 	}
 
+	private void Sapo(int textArea2) {
+	}
+
 	private void podio() {
 		System.out.println("Sapo " + opcao + " chegou!");
-		textArea.setText(textArea.getText() + " Sapo " + opcao + "\n");
 	}
 
 	private void corrida () {
