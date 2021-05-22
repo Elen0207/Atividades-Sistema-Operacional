@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ReadFile implements IReadFile {
-    private String [] phrase;
 
     public ReadFile() {
         super();
@@ -24,11 +23,15 @@ public class ReadFile implements IReadFile {
             String line = buffer.readLine();
             
             while (line != null) {
+                String [] phrase;
                 phrase = line.split(",");
  
                 for (String word: phrase) {
                     if (word.equalsIgnoreCase("fruits")) {
-                        System.out.println("Fruta: "+line);
+                        System.out.println("FOOD NAME: "+ phrase[0] +
+                                                " - SCIENTIFIC NAME: "+phrase[1]+
+                                                " - GROUP: "+phrase[2]+
+                                                " - SUB GROUP: "+phrase[3]);
                     }
                 }
                 line = buffer.readLine();
@@ -54,11 +57,15 @@ public class ReadFile implements IReadFile {
             String line = buffer.readLine();
             
             while (line != null) {
+                String [] phrase;
                 phrase = line.split(",");
  
                 for (String word: phrase) {
                     if (word.equalsIgnoreCase("Fruits")) {
-                        System.out.println("Fruta: "+line);
+                        System.out.println("FOOD NAME: "+ phrase[0] +
+                                                "  - SCIENTIFIC NAME: "+phrase[1]+
+                                                "  - GROUP: "+phrase[2]+
+                                                "  - SUB GROUP: "+phrase[3]);
                     }
                 }
                 line = buffer.readLine();
