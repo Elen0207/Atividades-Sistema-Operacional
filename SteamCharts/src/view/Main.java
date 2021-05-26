@@ -35,7 +35,7 @@ public class Main {
                 case 2:
                     int anos = Integer.parseInt(JOptionPane.showInputDialog("Digite o ano:"));
                     String meses = JOptionPane.showInputDialog("Digite o mes:");
-                    String path = "C:\\Users\\elenc\\Documents";
+                    String path = "C:\\TEMP";
                     String name = "NovoArquivo.csv";
 
                     try {

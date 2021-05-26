@@ -7,7 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-
 import javax.swing.JOptionPane;
 
 public class SteamCharts implements ISteamCharts {
@@ -24,13 +23,14 @@ public class SteamCharts implements ISteamCharts {
             if ( arq.exists() ) {
                 existe = true;
             }
-            String conteudo = geraTxt();
+            String conteudo = geraTxt(ano, mes);
             FileWriter fileWriter = new FileWriter(arq, existe);
             PrintWriter print = new PrintWriter(fileWriter);
             print.write(conteudo);
             print.flush();
             print.close();
             fileWriter.close();
+            JOptionPane.showMessageDialog(null,"Arquivo salvo em: "+ path);
         }
         else {
             throw new IOException("Diretório inválido");
@@ -38,18 +38,38 @@ public class SteamCharts implements ISteamCharts {
     }
 
    
-    private String geraTxt() {
+    private String geraTxt(int ano, String mes) throws IOException {
+        String arquivo = "SteamCharts.csv";
+        File arq = new File(arquivo); 
         StringBuffer buffer = new StringBuffer();
-        String linha = "";
-        while(!linha.equalsIgnoreCase("fim")) {
-            linha = JOptionPane.showInputDialog(null, "Digite um frase",
-                    "Entrada de texto", JOptionPane.INFORMATION_MESSAGE);
-            if ( !linha.equalsIgnoreCase("fim") ) {
-                buffer.append(linha+"\r\n");
+
+        if ( arq.exists() && arq.isFile() ) {
+            FileInputStream fluxo = new FileInputStream(arq);
+            InputStreamReader leitor = new InputStreamReader(fluxo);
+            BufferedReader buffers = new BufferedReader(leitor);
+            String line = buffers.readLine();
+
+            while (line != null) {
+                String [] phrase;
+                phrase = line.split(",");
+                
+                for (String word: phrase) {
+                    if ( word.equalsIgnoreCase(mes) ) {
+                        int anos = Integer.parseInt(phrase[1]);
+                        if ( anos == ano) {
+                            buffer.append(phrase[0]+";"+phrase[3]+"\r\n");
+                        }
+                    }
+                }
+                line = buffers.readLine();
             }
+            buffers.close();
+            leitor.close();
+            fluxo.close();
         }
         return buffer.toString();
     }
+
 
 
     public void readFile(int ano, String mes, double media) throws IOException {
